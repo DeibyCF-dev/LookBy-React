@@ -1,0 +1,10 @@
+{
+  "description": "Connect with beauty salons, schedule appointments, and shop premium cosmetic products seamlessly, all in a luxurious, user-friendly platform.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
