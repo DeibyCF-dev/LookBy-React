@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Superadministrador — LookBy</title>
+  
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body class="page-shell">
+
+  <header class="top-nav">
+    <a href="../../index.html">
+      <svg viewBox="0 0 340 90" height="38" role="img" aria-label="LookBy">
+        <defs>
+          <linearGradient id="logo-gold-adm" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="50%" stop-color="#FDECD4" />
+            <stop offset="100%" stop-color="#C89D7C" />
+          </linearGradient>
+        </defs>
+        <text x="50%" y="72" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="80" fill="url(#logo-gold-adm)">LookBy</text>
+      </svg>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <span class="eyebrow" style="margin: 0;">Panel Superadministrador</span>
+    </div>
+
+    <div class="nav-actions">
+      <span class="user-name-display text-dim" style="font-size: 12.5px; font-weight: 600;">Administrador</span>
+      <div class="user-avatar-letter" style="width:32px;height:32px;border-radius:50%;background:rgba(212,175,55,0.2);border:1px solid var(--border-color);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold-primary);font-size:12px;">A</div>
+      
+      <button class="theme-toggle-btn" data-action="toggle-theme" title="Cambiar tema">
+        <span class="theme-toggle-switch"></span>
+        <span class="theme-icon">🌙</span>
+      </button>
+
+      <button id="superadmin-logout-btn" class="btn btn-outline-gold btn-sm">Cerrar Sesión</button>
+      <a href="../../index.html" class="btn btn-ghost btn-sm">← Inicio</a>
+    </div>
+  </header>
+
+  <div class="page-body">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-profile">
+        <div class="sidebar-avatar user-avatar-letter">A</div>
+        <p class="sidebar-name user-name-display">Administrador Global</p>
+        <p class="sidebar-email user-email-display">admin@lookby.com</p>
+        <span class="badge badge-gold">SUPERADMIN</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-link active" data-tab="dashboard">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span>Dashboard Global</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="usuarios">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+          <span>Usuarios & Roles</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="locales">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span>Locales de Belleza</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="proveedores">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span>Proveedores</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="auditoria">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
+          <span>Registro de Auditoría</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content Tabs -->
+    <main class="main-content">
+      
+      <!-- TAB 1: DASHBOARD GLOBAL -->
+      <section id="tab-dashboard" class="tab-pane active">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Control de Plataforma</p>
+            <h2 class="section-title">Métricas Globales LookBy</h2>
+          </div>
+          <button id="open-new-user-modal" class="btn btn-gold">+ Crear Usuario</button>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-icon-wrapper">👥</div>
+              <span class="badge badge-success">Activo</span>
+            </div>
+            <p id="metric-total-users" class="stat-card-value">4</p>
+            <p class="stat-card-label">Usuarios Registrados</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-icon-wrapper">🏪</div>
+            </div>
+            <p id="metric-total-salons" class="stat-card-value">6</p>
+            <p class="stat-card-label">Locales de Belleza</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-icon-wrapper">📦</div>
+            </div>
+            <p id="metric-total-orders" class="stat-card-value">3</p>
+            <p class="stat-card-label">Pedidos Completados</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-icon-wrapper">💎</div>
+            </div>
+            <p id="metric-total-volume" class="stat-card-value">$377.000</p>
+            <p class="stat-card-label">Volumen Transaccionado</p>
+          </div>
+        </div>
+
+        <div class="card-luxury" style="margin-top: 2rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 1rem;">Actividad Reciente del Sistema</h3>
+          <div class="table-wrapper">
+            <table class="table-luxury">
+              <thead>
+                <tr>
+                  <th>Nivel</th>
+                  <th>Acción</th>
+                  <th>Entidad</th>
+                  <th>Detalle</th>
+                  <th>Actor</th>
+                  <th>Fecha</th>
+                </tr>
+              </thead>
+              <tbody id="superadmin-audit-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: USUARIOS & ROLES -->
+      <section id="tab-usuarios" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Control de Accesos</p>
+            <h2 class="section-title">Usuarios y Roles Registrados</h2>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table-luxury">
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Documento</th>
+                <th>Rol</th>
+                <th>Teléfono</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="superadmin-users-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 3: LOCALES DE BELLEZA -->
+      <section id="tab-locales" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Red de Salones</p>
+            <h2 class="section-title">Locales de Estética Afiliados</h2>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table-luxury">
+            <thead>
+              <tr>
+                <th>Local</th>
+                <th>Especialidad</th>
+                <th>Horario</th>
+                <th>Calificación</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="superadmin-salons-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 4: PROVEEDORES -->
+      <section id="tab-proveedores" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Red B2B</p>
+            <h2 class="section-title">Distribuidores y Proveedores</h2>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table-luxury">
+            <thead>
+              <tr>
+                <th>Razón Social</th>
+                <th>RUT</th>
+                <th>Catálogo</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="superadmin-suppliers-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 5: AUDITORÍA -->
+      <section id="tab-auditoria" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Seguridad y Trazabilidad</p>
+            <h2 class="section-title">Registro de Auditoría del Sistema</h2>
+          </div>
+        </div>
+        <!-- Renderizado dinámico -->
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal Crear Usuario -->
+  <div id="superadmin-user-modal-backdrop" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Crear Nuevo Usuario</h3>
+        <button id="close-new-user-modal" class="modal-close">✕</button>
+      </div>
+      <form id="superadmin-user-form" class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Nombre Completo</label>
+          <input type="text" id="usr-name" class="input-base" placeholder="Ej: Marcela Ramos" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Correo Electrónico</label>
+          <input type="email" id="usr-email" class="input-base" placeholder="marcela@email.cl" required />
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Rol en el Sistema</label>
+            <select id="usr-role" class="input-base" required>
+              <option value="cliente">Cliente</option>
+              <option value="profesional">Profesional (Negocio)</option>
+              <option value="proveedor">Proveedor Mayorista</option>
+              <option value="admin">Superadmin</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Teléfono</label>
+            <input type="tel" id="usr-phone" class="input-base" placeholder="+56 9 8888 7777" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Documento / RUT</label>
+          <input type="text" id="usr-doc" class="input-base" placeholder="19.876.543-2" />
+        </div>
+        <button type="submit" class="btn btn-gold w-full" style="margin-top: 1rem;">Crear Usuario</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="../js/theme.js"></script>
+  <script type="module">
+    import { initSuperadminPage } from '../js/pages/superadmin.js';
+    initSuperadminPage();
+  </script>
+</body>
+</html>

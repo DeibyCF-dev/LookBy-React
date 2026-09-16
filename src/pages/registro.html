@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Cuenta — LookBy</title>
+  
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body>
+
+  <header class="top-nav">
+    <a href="../../index.html">
+      <svg viewBox="0 0 340 90" height="38" role="img" aria-label="LookBy">
+        <defs>
+          <linearGradient id="logo-gold-reg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="50%" stop-color="#FDECD4" />
+            <stop offset="100%" stop-color="#C89D7C" />
+          </linearGradient>
+        </defs>
+        <text x="50%" y="72" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="80" fill="url(#logo-gold-reg)">LookBy</text>
+      </svg>
+    </a>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" data-action="toggle-theme" title="Cambiar tema">
+        <span class="theme-toggle-switch"></span>
+        <span class="theme-icon">🌙</span>
+      </button>
+      <a href="../../index.html" class="btn btn-outline-gold btn-sm">← Inicio</a>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card-wrapper" style="max-width: 520px;">
+      <div class="auth-header">
+        <p class="eyebrow">Únete a la plataforma</p>
+        <h1 class="auth-title">Crear Cuenta</h1>
+        <p class="text-dim" style="font-size: 13.5px;">Selecciona tu rol para acceder a las herramientas correspondientes</p>
+      </div>
+
+      <form id="register-form" class="card-luxury">
+        <div class="form-group">
+          <label class="form-label" for="register-name">Nombre Completo</label>
+          <input type="text" id="register-name" class="input-base" placeholder="María González" required autofocus />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="register-email">Correo Electrónico</label>
+          <input type="email" id="register-email" class="input-base" placeholder="maria@email.cl" required />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="register-phone">Teléfono Móvil</label>
+            <input type="tel" id="register-phone" class="input-base" placeholder="+56 9 1234 5678" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="register-role">Tipo de Usuario</label>
+            <select id="register-role" class="input-base" required>
+              <option value="cliente">Cliente (Usuario final)</option>
+              <option value="profesional">Profesional / Negocio</option>
+              <option value="proveedor">Proveedor Mayorista</option>
+              <option value="admin">Administrador (Requiere código)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="admin-code-group" class="form-group" style="display: none;">
+          <label class="form-label" for="register-admin-code">Código de Verificación Admin</label>
+          <input type="text" id="register-admin-code" class="input-base" placeholder="LOOKBY_ADMIN_2026" />
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label" for="register-password">Contraseña</label>
+            <input type="password" id="register-password" class="input-base" placeholder="••••••••" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="register-confirm-password">Confirmar Contraseña</label>
+            <input type="password" id="register-confirm-password" class="input-base" placeholder="••••••••" required />
+          </div>
+        </div>
+
+        <div id="register-error" class="badge badge-danger" style="display: none; width: 100%; padding: 0.65rem 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center; text-transform: none; font-size: 12px;"></div>
+
+        <button type="submit" class="btn btn-gold w-full btn-lg">Registrar Cuenta →</button>
+
+        <p class="text-dim" style="text-align: center; font-size: 12.5px; margin-top: 1.25rem;">
+          ¿Ya tienes cuenta? <a href="login.html" class="text-gold" style="font-weight: 600;">Inicia Sesión</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="../js/theme.js"></script>
+  <script type="module">
+    import { guestOnly } from '../js/auth.js';
+    import { initAuthPage } from '../js/pages/auth.js';
+
+    if (guestOnly()) {
+      initAuthPage();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+/* ─── Componentes Visuales LookBy ───────────────────────────────────────────── */
+
+/* ─── Botones ───────────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  font-size: 13px;
+  padding: 0.65rem 1.25rem;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold-primary) 0%, var(--gold-warm) 100%);
+  color: #0A0A0A;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.25);
+}
+.btn-gold:hover:not(:disabled) {
+  opacity: 0.92;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.38);
+}
+.btn-gold:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-outline-gold {
+  background: transparent;
+  border-color: var(--gold-border);
+  color: var(--gold-primary);
+}
+.btn-outline-gold:hover:not(:disabled) {
+  background: rgba(212, 175, 55, 0.10);
+  border-color: var(--gold-hover);
+  color: var(--gold-light);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--fg-muted);
+}
+.btn-ghost:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--fg-main);
+}
+
+.btn-sm {
+  padding: 0.4rem 0.85rem;
+  font-size: 11px;
+}
+.btn-lg {
+  padding: 0.85rem 1.75rem;
+  font-size: 15px;
+}
+
+/* ─── Tarjetas de Lujo (Card Luxury) ────────────────────────────────────────── */
+.card-luxury {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
+}
+
+.card-luxury:hover {
+  border-color: var(--gold-hover);
+  box-shadow: var(--shadow-card);
+}
+
+/* ─── Stat Cards ────────────────────────────────────────────────────────────── */
+.stat-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  transition: all var(--transition-normal);
+}
+.stat-card:hover {
+  border-color: var(--gold-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card);
+}
+.stat-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+.stat-icon-wrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-primary);
+}
+.stat-card-value {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--fg-main);
+  margin-bottom: 0.2rem;
+}
+.stat-card-label {
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+.stat-card-sub {
+  font-size: 11px;
+  color: var(--gold-warm);
+  margin-top: 0.35rem;
+}
+
+/* ─── Badges / Insignias ────────────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  line-height: 1;
+}
+
+.badge-neutral {
+  color: var(--fg-dim);
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.badge-gold {
+  color: var(--gold-primary);
+  background-color: rgba(212, 175, 55, 0.12);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+.badge-success {
+  color: var(--status-success-text);
+  background-color: var(--status-success-bg);
+  border-color: var(--status-success-border);
+}
+.badge-warning {
+  color: var(--status-warning-text);
+  background-color: var(--status-warning-bg);
+  border-color: var(--status-warning-border);
+}
+.badge-danger {
+  color: var(--status-danger-text);
+  background-color: var(--status-danger-bg);
+  border-color: var(--status-danger-border);
+}
+.badge-info {
+  color: var(--status-info-text);
+  background-color: var(--status-info-bg);
+  border-color: var(--status-info-border);
+}
+
+/* ─── Formularios & Entradas ────────────────────────────────────────────────── */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.form-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+}
+
+.input-base {
+  width: 100%;
+  background-color: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 1rem;
+  color: var(--fg-main);
+  outline: none;
+  font-size: 13.5px;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+.input-base:focus {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 2px var(--gold-glow);
+}
+.input-base::placeholder {
+  color: var(--fg-ghost);
+}
+
+select.input-base {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 1rem;
+  padding-right: 2.5rem;
+}
+
+/* ─── Tablas Estilizadas ────────────────────────────────────────────────────── */
+.table-wrapper {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.table-luxury {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.table-luxury th {
+  padding: 1rem 1.25rem;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--fg-dim);
+  border-bottom: 1px solid var(--border-color);
+  background-color: rgba(212, 175, 55, 0.03);
+}
+
+.table-luxury td {
+  padding: 1rem 1.25rem;
+  font-size: 13.5px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.08);
+  color: var(--fg-main);
+  vertical-align: middle;
+}
+
+.table-luxury tr:last-child td {
+  border-bottom: none;
+}
+.table-luxury tr:hover td {
+  background-color: rgba(212, 175, 55, 0.02);
+}
+
+/* ─── Modales ───────────────────────────────────────────────────────────────── */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--bg-overlay);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-card {
+  position: relative;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-modal);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.95) translateY(10px);
+  transition: transform var(--transition-normal);
+}
+
+.modal-backdrop.active .modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+.modal-title {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--fg-main);
+}
+.modal-close {
+  background: none;
+  border: none;
+  color: var(--fg-dim);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+.modal-close:hover {
+  color: var(--fg-main);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.modal-body {
+  padding: 1.5rem;
+}
+
+/* ─── Theme Toggle Switch ──────────────────────────────────────────────────── */
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.35rem;
+  color: var(--fg-dim);
+  font-size: 11px;
+}
+.theme-toggle-btn:hover {
+  color: var(--gold-primary);
+}
+
+.theme-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  transition: background-color var(--transition-normal);
+}
+
+.theme-toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold-primary), var(--gold-warm));
+  transition: transform var(--transition-normal);
+}
+
+html.light .theme-toggle-switch {
+  background-color: rgba(212, 175, 55, 0.2);
+}
+html.light .theme-toggle-switch::after {
+  transform: translateX(16px);
+}
+
+/* ─── Calificación por Estrellas (Stars) ─────────────────────────────────────── */
+.stars-container {
+  display: inline-flex;
+  gap: 2px;
+  align-items: center;
+}
+.star-icon {
+  width: 14px;
+  height: 14px;
+  fill: rgba(212, 175, 55, 0.25);
+  transition: fill var(--transition-fast), transform var(--transition-fast);
+}
+.star-icon.filled {
+  fill: var(--gold-primary);
+}
+.star-interactive {
+  cursor: pointer;
+}
+.star-interactive:hover {
+  transform: scale(1.2);
+}

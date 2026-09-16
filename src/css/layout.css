@@ -1,0 +1,297 @@
+/* ─── Layout y Estructura LookBy ────────────────────────────────────────────── */
+
+/* ─── Shell General (PageShell) ────────────────────────────────────────────── */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
+  color: var(--fg-main);
+}
+
+.page-body {
+  display: flex;
+  flex: 1;
+  min-height: calc(100vh - 72px);
+  position: relative;
+}
+
+/* ─── Barra de Navegación Superior (TopNav) ─────────────────────────────────── */
+.top-nav {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-color);
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: 13px;
+  color: var(--fg-muted);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--gold-primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Role switch pills */
+.role-pills {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.25rem;
+}
+.role-pill-btn {
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  font-size: 11px;
+  color: var(--fg-dim);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+.role-pill-btn:hover {
+  color: var(--gold-primary);
+  background-color: rgba(212, 175, 55, 0.08);
+}
+.role-pill-btn.active {
+  color: var(--gold-primary);
+  background-color: rgba(212, 175, 55, 0.15);
+  font-weight: 600;
+}
+
+/* ─── Barra Lateral (Sidebar) ───────────────────────────────────────────────── */
+.sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.sidebar-profile {
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(200, 157, 124, 0.1));
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+  overflow: hidden;
+}
+.sidebar-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sidebar-name {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--fg-main);
+  margin-bottom: 0.15rem;
+}
+.sidebar-email {
+  font-size: 12px;
+  color: var(--fg-dim);
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1.25rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  overflow-y: auto;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  color: var(--fg-dim);
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.sidebar-link:hover {
+  color: var(--fg-main);
+  background-color: rgba(128, 128, 128, 0.08);
+}
+
+.sidebar-link.active {
+  color: var(--gold-primary);
+  background-color: rgba(212, 175, 55, 0.12);
+  border-color: rgba(212, 175, 55, 0.28);
+  font-weight: 600;
+}
+.sidebar-link svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* ─── Contenido Principal (MainContent) ─────────────────────────────────────── */
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2.5rem;
+  background-color: var(--bg-main);
+  transition: background-color var(--transition-normal);
+}
+
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--fg-main);
+}
+
+/* ─── Footer ───────────────────────────────────────────────────────────────── */
+.footer {
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-mid);
+  padding: 4rem 2rem 2rem;
+  margin-top: auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  max-width: 1280px;
+  margin: 0 auto 3rem;
+}
+.footer-brand p {
+  color: var(--fg-dim);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 1rem;
+  max-width: 320px;
+}
+.footer-col h4 {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-warm);
+  margin-bottom: 1.25rem;
+}
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+.footer-col a {
+  color: var(--fg-muted);
+  font-size: 13px;
+}
+.footer-col a:hover {
+  color: var(--gold-primary);
+}
+.footer-bottom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--fg-ghost);
+}
+
+/* ─── Responsive Media Queries ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .page-body {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .sidebar-link {
+    width: auto;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .top-nav {
+    padding: 0 1rem;
+  }
+  .nav-links {
+    display: none;
+  }
+  .main-content {
+    padding: 1.25rem;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}

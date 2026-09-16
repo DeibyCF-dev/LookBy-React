@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iniciar Sesión — LookBy</title>
+  
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body>
+
+  <header class="top-nav">
+    <a href="../../index.html">
+      <svg viewBox="0 0 340 90" height="38" role="img" aria-label="LookBy">
+        <defs>
+          <linearGradient id="logo-gold-login" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="50%" stop-color="#FDECD4" />
+            <stop offset="100%" stop-color="#C89D7C" />
+          </linearGradient>
+        </defs>
+        <text x="50%" y="72" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="80" fill="url(#logo-gold-login)">LookBy</text>
+      </svg>
+    </a>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" data-action="toggle-theme" title="Cambiar tema">
+        <span class="theme-toggle-switch"></span>
+        <span class="theme-icon">🌙</span>
+      </button>
+      <a href="../../index.html" class="btn btn-outline-gold btn-sm">← Inicio</a>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card-wrapper">
+      <div class="auth-header">
+        <p class="eyebrow">Acceso a la plataforma</p>
+        <h1 class="auth-title">Iniciar Sesión</h1>
+        <p class="text-dim" style="font-size: 13.5px;">Tu tipo de usuario determinará tu panel de acceso</p>
+      </div>
+
+      <form id="login-form" class="card-luxury">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Correo Electrónico</label>
+          <input type="email" id="login-email" class="input-base" placeholder="usuario@email.cl" required autofocus />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Contraseña</label>
+          <input type="password" id="login-password" class="input-base" placeholder="••••••••" required />
+        </div>
+
+        <div class="flex items-center justify-between" style="font-size: 12px; margin-bottom: 1.25rem;">
+          <label class="flex items-center gap-2 text-dim" style="cursor: pointer;">
+            <input type="checkbox" style="accent-color: var(--gold-primary);" /> Recordarme
+          </label>
+          <a href="recuperar.html" class="text-gold-warm" style="text-decoration: underline;">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <div id="login-error" class="badge badge-danger" style="display: none; width: 100%; padding: 0.65rem 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center; text-transform: none; font-size: 12px;"></div>
+
+        <button type="submit" class="btn btn-gold w-full btn-lg">Ingresar al Panel →</button>
+
+        <p class="text-dim" style="text-align: center; font-size: 12.5px; margin-top: 1.25rem;">
+          ¿No tienes una cuenta? <a href="registro.html" class="text-gold" style="font-weight: 600;">Regístrate</a>
+        </p>
+      </form>
+
+      <div style="margin-top: 2rem;">
+        <p class="eyebrow" style="text-align: center;">Acceso Rápido Demo</p>
+        <div id="demo-accounts-grid" class="demo-accounts-grid"></div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module" src="../js/theme.js"></script>
+  <script type="module">
+    import { guestOnly } from '../js/auth.js';
+    import { initAuthPage } from '../js/pages/auth.js';
+
+    if (guestOnly()) {
+      initAuthPage();
+    }
+  </script>
+</body>
+</html>

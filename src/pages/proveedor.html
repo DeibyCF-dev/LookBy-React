@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal Mayorista — LookBy</title>
+  
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body class="page-shell">
+
+  <header class="top-nav">
+    <a href="../../index.html">
+      <svg viewBox="0 0 340 90" height="38" role="img" aria-label="LookBy">
+        <defs>
+          <linearGradient id="logo-gold-prov" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="50%" stop-color="#FDECD4" />
+            <stop offset="100%" stop-color="#C89D7C" />
+          </linearGradient>
+        </defs>
+        <text x="50%" y="72" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="80" fill="url(#logo-gold-prov)">LookBy</text>
+      </svg>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <span class="eyebrow" style="margin: 0;">Portal Mayoristas</span>
+    </div>
+
+    <div class="nav-actions">
+      <span class="user-business-display text-dim" style="font-size: 12.5px; font-weight: 600;">Distribuidora Andina S.A.</span>
+      <div class="user-avatar-letter" style="width:32px;height:32px;border-radius:50%;background:rgba(212,175,55,0.2);border:1px solid var(--border-color);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--gold-primary);font-size:12px;">D</div>
+      
+      <button class="theme-toggle-btn" data-action="toggle-theme" title="Cambiar tema">
+        <span class="theme-toggle-switch"></span>
+        <span class="theme-icon">🌙</span>
+      </button>
+
+      <button id="proveedor-logout-btn" class="btn btn-outline-gold btn-sm">Cerrar Sesión</button>
+      <a href="../../index.html" class="btn btn-ghost btn-sm">← Inicio</a>
+    </div>
+  </header>
+
+  <div class="page-body">
+    
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-profile">
+        <div class="sidebar-avatar user-avatar-letter">D</div>
+        <p class="sidebar-name user-name-display">Distribuidora Andina</p>
+        <p class="sidebar-email user-business-display">ventas@andina.cl</p>
+        <span class="badge badge-warning">PROVEEDOR</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="sidebar-link active" data-tab="dashboard">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+          <span>Dashboard Mayorista</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="catalogo">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          <span>Catálogo Mayoreo</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="ordenes">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          <span>Órdenes de Salones</span>
+        </button>
+
+        <button class="sidebar-link" data-tab="perfil">
+          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+          <span>Perfil de Empresa</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- Main Content Tabs -->
+    <main class="main-content">
+      
+      <!-- TAB 1: DASHBOARD MAYORISTA -->
+      <section id="tab-dashboard" class="tab-pane active">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Abastecimiento a Salones</p>
+            <h2 class="section-title">Métricas de Venta Mayorista</h2>
+          </div>
+          <button id="open-wholesale-modal" class="btn btn-gold">+ Publicar Oferta Mayorista</button>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-icon-wrapper">🏢</div>
+              <span class="badge badge-success">Activo</span>
+            </div>
+            <p id="metric-wholesale-sales" class="stat-card-value">$3.727.800</p>
+            <p class="stat-card-label">Ventas Mayoristas del Mes</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-icon-wrapper">📋</div>
+            </div>
+            <p id="metric-wholesale-orders" class="stat-card-value">4</p>
+            <p class="stat-card-label">Órdenes de Compra</p>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-header">
+              <div class="stat-icon-wrapper">📦</div>
+            </div>
+            <p id="metric-total-stock" class="stat-card-value">1.967 un.</p>
+            <p class="stat-card-label">Stock en Bodega</p>
+          </div>
+        </div>
+
+        <div class="section-header" style="margin-top: 3rem; margin-bottom: 1.5rem;">
+          <h3 style="font-family: var(--font-serif); font-size: 1.4rem;">Productos Disponibles para Negocios</h3>
+        </div>
+        <div id="proveedor-products-grid" class="products-grid"></div>
+      </section>
+
+      <!-- TAB 2: CATÁLOGO MAYOREO -->
+      <section id="tab-catalogo" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Ofertas B2B</p>
+            <h2 class="section-title">Catálogo Mayorista</h2>
+          </div>
+        </div>
+        <div class="products-grid">
+          <!-- Renderizado dinámico -->
+        </div>
+      </section>
+
+      <!-- TAB 3: ÓRDENES DE NEGOCIOS -->
+      <section id="tab-ordenes" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Recepción de Pedidos B2B</p>
+            <h2 class="section-title">Órdenes de Compra de Salones</h2>
+          </div>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="table-luxury">
+            <thead>
+              <tr>
+                <th>ID Orden</th>
+                <th>Salón / Negocio</th>
+                <th>Productos</th>
+                <th>Fecha</th>
+                <th>Monto Total</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="proveedor-orders-tbody"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- TAB 4: PERFIL EMPRESA -->
+      <section id="tab-perfil" class="tab-pane">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Datos de Facturación</p>
+            <h2 class="section-title">Perfil de Proveedor Mayorista</h2>
+          </div>
+        </div>
+        <div class="card-luxury" style="max-width: 600px;">
+          <div class="form-group">
+            <label class="form-label">Razón Social</label>
+            <input type="text" class="input-base" value="Distribuidora Andina S.A." readonly />
+          </div>
+          <div class="form-group">
+            <label class="form-label">RUT Empresa</label>
+            <input type="text" class="input-base" value="72.345.678-9" readonly />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Contacto Comercial</label>
+            <input type="text" class="input-base" value="ventas@andina.cl" readonly />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Dirección de Bodega</label>
+            <input type="text" class="input-base" value="Camino a Melipilla 4500, Maipú" readonly />
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Modal Nuevo Producto Mayorista -->
+  <div id="proveedor-product-modal-backdrop" class="modal-backdrop">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 class="modal-title">Publicar Oferta Mayorista</h3>
+        <button id="close-wholesale-modal" class="modal-close">✕</button>
+      </div>
+      <form id="proveedor-product-form" class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Nombre del Producto</label>
+          <input type="text" id="ws-prod-name" class="input-base" placeholder="Ej: Champú Profesional 1000ml" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Categoría</label>
+          <select id="ws-prod-cat" class="input-base" required>
+            <option value="Capilar">Capilar</option>
+            <option value="Tratamiento Facial">Tratamiento Facial</option>
+            <option value="Maquillaje">Maquillaje</option>
+            <option value="Cuidado Corporal">Cuidado Corporal</option>
+          </select>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Precio Mayoreo ($ CLP)</label>
+            <input type="number" id="ws-prod-price" class="input-base" placeholder="25000" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Precio Retail Ref ($ CLP)</label>
+            <input type="number" id="ws-prod-retail" class="input-base" placeholder="45000" required />
+          </div>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Stock en Bodega</label>
+            <input type="number" id="ws-prod-stock" class="input-base" placeholder="500" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">MOQ (Mínimo de Compra)</label>
+            <input type="number" id="ws-prod-moq" class="input-base" value="6" required />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-gold w-full" style="margin-top: 1rem;">Publicar Oferta</button>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="../js/theme.js"></script>
+  <script type="module">
+    import { initProveedorPage } from '../js/pages/proveedor.js';
+    initProveedorPage();
+  </script>
+</body>
+</html>

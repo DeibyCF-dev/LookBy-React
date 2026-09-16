@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuperar Contraseña — LookBy</title>
+  
+  <link rel="stylesheet" href="../css/main.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/layout.css" />
+  <link rel="stylesheet" href="../css/pages.css" />
+</head>
+<body>
+
+  <header class="top-nav">
+    <a href="../../index.html">
+      <svg viewBox="0 0 340 90" height="38" role="img" aria-label="LookBy">
+        <defs>
+          <linearGradient id="logo-gold-rec" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" />
+            <stop offset="50%" stop-color="#FDECD4" />
+            <stop offset="100%" stop-color="#C89D7C" />
+          </linearGradient>
+        </defs>
+        <text x="50%" y="72" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="80" fill="url(#logo-gold-rec)">LookBy</text>
+      </svg>
+    </a>
+
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" data-action="toggle-theme" title="Cambiar tema">
+        <span class="theme-toggle-switch"></span>
+        <span class="theme-icon">🌙</span>
+      </button>
+      <a href="login.html" class="btn btn-outline-gold btn-sm">← Volver</a>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <div class="auth-card-wrapper">
+      <div class="auth-header">
+        <p class="eyebrow">Recuperación de cuenta</p>
+        <h1 class="auth-title">Recuperar Contraseña</h1>
+        <p class="text-dim" style="font-size: 13.5px;">Te enviaremos un enlace seguro con token para restablecer tu contraseña</p>
+      </div>
+
+      <form id="recovery-form" class="card-luxury">
+        <div class="form-group">
+          <label class="form-label" for="recovery-email">Correo Electrónico Registrado</label>
+          <input type="email" id="recovery-email" class="input-base" placeholder="usuario@email.cl" required autofocus />
+        </div>
+
+        <div id="recovery-error" class="badge badge-danger" style="display: none; width: 100%; padding: 0.65rem 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center; text-transform: none; font-size: 12px;"></div>
+
+        <div id="recovery-result" style="display: none; margin-bottom: 1.25rem;">
+          <div class="badge badge-success" style="width: 100%; padding: 0.65rem 1rem; border-radius: 8px; margin-bottom: 0.75rem; text-align: center; text-transform: none; font-size: 12px;">
+            ¡Enlace generado exitosamente! Haz clic a continuación para continuar:
+          </div>
+          <div class="card-luxury" style="padding: 0.75rem 1rem; background-color: var(--bg-surface);">
+            <p style="font-size: 10px; text-transform: uppercase; color: var(--fg-ghost); margin-bottom: 0.25rem;">Simulación de Enlace por Correo:</p>
+            <a id="recovery-dev-link" href="#" class="text-gold" style="font-size: 12px; word-break: break-all;"></a>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-gold w-full btn-lg">Enviar Enlace de Recuperación</button>
+
+        <p class="text-dim" style="text-align: center; font-size: 12.5px; margin-top: 1.25rem;">
+          <a href="login.html" class="text-gold">← Volver al Inicio de Sesión</a>
+        </p>
+      </form>
+    </div>
+  </main>
+
+  <script type="module" src="../js/theme.js"></script>
+  <script type="module">
+    import { initAuthPage } from '../js/pages/auth.js';
+    initAuthPage();
+  </script>
+</body>
+</html>

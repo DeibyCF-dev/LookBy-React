@@ -12,6 +12,19 @@ export default defineConfig(({ mode }) => {
     build: {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
+      rollupOptions: {
+        input: {
+          main: path.resolve(import.meta.dirname, 'index.html'),
+          login: path.resolve(import.meta.dirname, 'src/pages/login.html'),
+          registro: path.resolve(import.meta.dirname, 'src/pages/registro.html'),
+          recuperar: path.resolve(import.meta.dirname, 'src/pages/recuperar.html'),
+          resetPassword: path.resolve(import.meta.dirname, 'src/pages/reset-password.html'),
+          cliente: path.resolve(import.meta.dirname, 'src/pages/cliente.html'),
+          negocio: path.resolve(import.meta.dirname, 'src/pages/negocio.html'),
+          proveedor: path.resolve(import.meta.dirname, 'src/pages/proveedor.html'),
+          superadmin: path.resolve(import.meta.dirname, 'src/pages/superadmin.html'),
+        },
+      },
     },
     plugins: [
       react(),
@@ -22,7 +35,7 @@ export default defineConfig(({ mode }) => {
     ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@': path.resolve(import.meta.dirname, './src'),
       },
     },
     server: {
